@@ -1,4 +1,4 @@
-import LetterBox from "./components/LetterBox";
+import LetterBox from './components/LetterBox';
 
 const TRIES = 6;
 const LETTERS = 5;
@@ -18,21 +18,25 @@ function App() {
       >
         Wordle
       </h1>
-      <div className="
+      <div
+        className="
         grid grid-cols-5 grid-rows-6
         w-fit mx-auto
         gap-1
-        ">
-        {Array.from({length: TRIES}).map(() => {
-          return(
+        "
+      >
+        {Array.from({ length: TRIES }).map(() => {
+          return (
             <>
-              {Array.from({length: LETTERS}).map((_, index) => (
+              {Array.from({ length: LETTERS }).map((_, index) => (
                 <LetterBox key={index} />
               ))}
             </>
-          )
+          );
         })}
       </div>
+
+      <div></div>
     </main>
   );
 }
