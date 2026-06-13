@@ -3,16 +3,16 @@ import KeyboardKey from './components/KeyboardKey';
 
 const Keyboard = () => {
   return (
-    <div className="w-full max-w-xl mx-auto mt-8 space-y-2 px-3 text-center text-xl font-bold">
+    <div className="w-full max-w-xl mx-auto mt-8 space-y-1.5 px-3 text-center font-bold sm:space-y-2">
       {KEYBOARD_KEYS.map((row) => {
         const gridTemplateColumns = row
-          .map((letter) => (letter.length > 1 ? '5fr' : '3fr'))
+          .map((letter) => `minmax(0, ${letter.length > 1 ? '5fr' : '3fr'})`)
           .join(' ');
 
         return (
           <div
             key={row.join('-')}
-            className="grid justify-items-center mx-auto w-fit gap-1.5"
+            className="grid w-full gap-1 sm:gap-1.5"
             style={{ gridTemplateColumns }}
           >
             {row.map((letter) => {

@@ -1,8 +1,8 @@
 const LetterBox = () => {
   return (
     <div
-      className="text-center border-2 border-gray-600
-      grid content-center text-5xl w-15 h-15"
+      className="grid aspect-square w-full place-items-center border-2 border-gray-600 
+    text-center text-[clamp(2rem,10vw,3rem)] font-bold leading-none"
     >
       <span>X</span>
     </div>
