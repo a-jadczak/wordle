@@ -1,7 +1,5 @@
 import LetterBox from './components/LetterBox';
-
-const TRIES = 6;
-const LETTERS = 5;
+import GAME_CONFIG from './config/game';
 
 function App() {
   return (
@@ -25,10 +23,10 @@ function App() {
         gap-1
         "
       >
-        {Array.from({ length: TRIES }).map(() => {
+        {Array.from({ length: GAME_CONFIG.maxAttempts }).map(() => {
           return (
             <>
-              {Array.from({ length: LETTERS }).map((_, index) => (
+              {Array.from({ length: GAME_CONFIG.wordLength }).map((_, index) => (
                 <LetterBox key={index} />
               ))}
             </>
