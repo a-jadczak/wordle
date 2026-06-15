@@ -1,7 +1,7 @@
-interface KeyboardKeyProps {
+type KeyboardKeyProps = {
   letter: string;
   isActionKey: boolean;
-}
+};
 
 const KeyboardKey = ({ letter, isActionKey }: KeyboardKeyProps) => {
   return (
