@@ -1,9 +1,11 @@
 type KeyboardKeyProps = {
   letter: string;
+  ACTIONS: Record<string, () => void>;
   isActionKey: boolean;
+  addLetter: (value: string) => void;
 };
 
-const KeyboardKey = ({ letter, isActionKey }: KeyboardKeyProps) => {
+const KeyboardKey = ({ letter, ACTIONS, isActionKey, addLetter }: KeyboardKeyProps) => {
   return (
     <button
       type="button"
@@ -12,7 +14,13 @@ const KeyboardKey = ({ letter, isActionKey }: KeyboardKeyProps) => {
           ? 'px-1 text-[clamp(0.625rem,2.5vw,0.875rem)]'
           : 'text-[clamp(1rem,4vw,1.25rem)]'
       }`}
-      onClick={() => console.log(letter)}
+      onClick={() => {
+        if (isActionKey) {
+          ACTIONS[letter]();
+        } else {
+          addLetter(letter);
+        }
+      }}
     >
       {letter}
     </button>

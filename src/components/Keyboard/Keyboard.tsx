@@ -1,7 +1,10 @@
 import KEYBOARD_KEYS from '../../constants/keyboard';
 import KeyboardKey from './components/KeyboardKey';
+import { useGameStorage } from '../../context/GameStorageContext';
 
 const Keyboard = () => {
+  const { addLetter, ACTIONS } = useGameStorage();
+
   return (
     <div className="w-full max-w-xl mx-auto mt-8 space-y-1.5 px-3 text-center font-bold sm:space-y-2">
       {KEYBOARD_KEYS.map((row) => {
@@ -18,7 +21,15 @@ const Keyboard = () => {
             {row.map((letter) => {
               const isActionKey = letter.length > 1;
 
-              return <KeyboardKey key={letter} isActionKey={isActionKey} letter={letter} />;
+              return (
+                <KeyboardKey
+                  key={letter}
+                  isActionKey={isActionKey}
+                  letter={letter}
+                  addLetter={addLetter}
+                  ACTIONS={ACTIONS}
+                />
+              );
             })}
           </div>
         );
