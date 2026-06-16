@@ -28,7 +28,7 @@ const GuessBoard = () => {
 
   return (
     <div className="mx-auto my-auto w-full max-w-[min(92vw,22.5rem)]">
-      <div className="grid grid-cols-5 grid-rows-6 gap-1 sm:gap-1.5">
+      <div className="grid grid-cols-5 grid-rows-6 gap-1 sm:gap-1.5" role="grid">
         {rows.map((row, rowIndex) =>
           row.map(({ letter, status }, columnIndex) => (
             <LetterBox key={`${rowIndex}-${columnIndex}`} letter={letter} status={status} />

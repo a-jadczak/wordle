@@ -10,6 +10,9 @@ const STATUS_CLASSES: Record<LetterResult['status'], string> = {
 const LetterBox = ({ letter, status }: LetterResult) => {
   return (
     <div
+      role="gridcell"
+      aria-label={`${letter || 'empty'} ${status}`}
+      data-status={status}
       className={`grid aspect-square w-full place-items-center border-2 text-center text-[clamp(2rem,10vw,3rem)] font-bold leading-none ${STATUS_CLASSES[status]}`}
     >
       <span>{letter}</span>
